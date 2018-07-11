@@ -1,11 +1,11 @@
 {
-  "name": "expressjs",
+  "name": "website",
   "version": "1.0.0",
-  "description": "Files for my Building a Website with Node & ExpressJS course on Lynda.com",
+  "description": "Files for my Building a Website with Node & ExpressJS",
   "main": "app/app.js",
   "scripts": {
     "start": "node app/app.js"
   },
-  "author": "Ray Villalobos",
+  "author": "Daryl Occ",
   "license": "MIT"
 }
