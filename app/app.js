@@ -7,38 +7,13 @@ var app = express();
 
 app.set("port", process.env.PORT || 3000);
 
+app.set("appData", dataFile);
 
-app.get("/", function (req, res) {
 
-    {let info = "";
+app.use(require("./routes/index"));
 
-        dataFile.speakers.forEach(function (item) {
+app.use(require("./routes/speakers"));
 
-            info += `
-            
-                <li>
-
-                    <h2>${item.name}</h2>
-
-                    <p>${item.summary}</p>
-
-                </li>
-            
-            `;
-
-        });
-
-        res.send(`
-        
-            <h1>Roux Academy Meetups</h1>
-
-            ${info}
-        
-        `);
-
-    }
-
-});
 
 var server = app.listen(app.get("port"), function () {
 
