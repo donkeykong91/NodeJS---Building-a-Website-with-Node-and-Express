@@ -1,4 +1,8 @@
-<article class="speakerslist">
+<article class="speakerslist <% if (pageID == "home") { %> 
+    
+                                jumbotron hidden-xs 
+
+                             <% } %>">
 
         <div class="container">
 
@@ -6,7 +10,15 @@
 
               <% speakers.forEach(function (speaker) { %>
 
-                <div class="col-sm-8">
+                <div class="<% if (pageID == "home") { %> 
+    
+                                col-sm-4 text-center 
+
+                            <% } else { %>
+                        
+                                col-sm-8
+
+                            <% } %>">
 
                         <h3 class="speakerslist-title"> <%= speaker.title %> </h3>
         
