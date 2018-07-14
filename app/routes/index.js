@@ -7,8 +7,9 @@ router.get("/", function (req, res) {
     
     {let data = req.app.get("appData");
      let pagePhotos = [];
+     let pageSpeakers = data.speakers;
 
-
+     
         data.speakers.forEach(function (item) {
 
             pagePhotos = pagePhotos.concat(item.artwork);
@@ -20,6 +21,8 @@ router.get("/", function (req, res) {
             pageTitle: "Home",
 
             pageID: "home",
+
+            speakers: pageSpeakers,
 
             artwork: pagePhotos
 
