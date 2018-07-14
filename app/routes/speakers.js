@@ -5,39 +5,29 @@ var router = express.Router();
 
 router.get("/speakers", function (req, res) {
 
-    {let info = "";
+    {let data = req.app.get("appData");
+     let pagePhotos = [];
+     let pageSpeakers = data.speakers;
 
-     let dataFile = req.app.get("appData");
 
-        dataFile.speakers.forEach(function (item) {
+        data.speakers.forEach(function (item) {
 
-            info += `
-            
-                <li>
+            pagePhotos = pagePhotos.concat(item.artwork);
 
-                    <h2>${item.name}</h2>
+        });
+        
+        res.render("speakers", {
 
-                    <img src="/images/speakers/${item.shortname}_tn.jpg" alt="speaker">
+            pageTitle: "Speakers",
 
-                    <p>${item.summary}</p>
+            pageID: "speakers",
 
-                </li>
-            
-            `;
+            speakers: pageSpeakers,
+
+            artwork: pagePhotos
 
         });
 
-        res.send(`
-        
-            <link rel="stylesheet" type="text/css" href="/css/style.css">
-
-            <h1>Roux Academy Meetups</h1>
-
-            ${info}
-
-            <script src="/reload/reload.js"></script>
-        
-        `);
 
     }
 
