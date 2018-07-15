@@ -2,6 +2,22 @@ $(function() {
 
     $.getJSON("api", updateFeedback);
 
+    
+    $(".feedback-form").submit(function (e) {
+        
+        e.preventDefault();
+
+        $.post("api", {
+
+            name: $("#feedback-form-name").val(),
+
+            title: $("#feedback-form-title").val(),
+
+            message: $("#feedback-form-message").val()
+
+        }, updateFeedback);
+
+    });
 
     function updateFeedback (data) {
         
