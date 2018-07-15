@@ -43,13 +43,13 @@
   
                       <li role="separator" class="divider"></li>
 
-                      <% allSpeakers.forEach(function(item) { %>
+                      <% allSpeakers.forEach(function(speaker) { %>
 
                         <li>
 
-                          <a href="/speakers/<% item.shortname %>">
+                          <a href="/speakers/<%= speaker.shortname %>">
                           
-                            <%= item.name %>
+                            <%= speaker.name %>
                           
                           </a>
 
