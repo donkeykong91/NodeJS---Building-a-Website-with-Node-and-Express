@@ -29,6 +29,8 @@ app.use(require("./routes/speakers"));
 
 app.use(require("./routes/feedback"));
 
+app.use(require("./routes/api"));
+
 
 var server = app.listen(app.get("port"), function () {
 
