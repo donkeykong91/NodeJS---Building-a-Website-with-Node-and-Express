@@ -6,7 +6,9 @@ var router = express.Router();
 router.get("/speakers", function (req, res) {
 
     {let data = req.app.get("appData");
+
      let pagePhotos = [];
+
      let pageSpeakers = data.speakers;
 
 
@@ -20,7 +22,7 @@ router.get("/speakers", function (req, res) {
 
             pageTitle: "Speakers",
 
-            pageID: "speakers",
+            pageID: "speakerList",
 
             speakers: pageSpeakers,
 
@@ -36,26 +38,36 @@ router.get("/speakers", function (req, res) {
 
 router.get("/speakers/:speakerid", function (req, res) {
 
-    {let dataFile = req.app.get("appData");
-   
-     let speaker = dataFile.speakers[req.params.speakerid];
-    
+    {let data = req.app.get("appData");
 
-        res.send(`
+     let pagePhotos = [];
 
-            <link rel="stylesheet" type="text/css" href="/css/style.css">
+     let pageSpeakers = [];
 
-            <h1>${speaker.title}</h1>
 
-            <h2>with ${speaker.name}</h2>
+        data.speakers.forEach(function (speaker) {
 
-            <img src="/images/speakers/${speaker.shortname}_tn.jpg" alt="speaker">
+            if (speaker.shortname == req.params.speakerid) {
 
-            <p>${speaker.summary}</p>
+                pageSpeakers.push(speaker);
 
-            <script src="/reload/reload.js"></script>
-    
-        `);
+                pagePhotos = pagePhotos.concat(speaker.artwork);
+
+            }
+
+        });
+        
+        res.render("speakers", {
+
+            pageTitle: "Speaker Info",
+
+            pageID: "speakerDetail",
+
+            speakers: pageSpeakers,
+
+            artwork: pagePhotos
+
+        });
 
 
     }
