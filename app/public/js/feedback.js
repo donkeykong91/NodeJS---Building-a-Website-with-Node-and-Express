@@ -1,11 +1,11 @@
 $(function() {
 
-    $getJSON("api", updateFeedback);
+    $.getJSON("api", updateFeedback);
 
 
     function updateFeedback (data) {
         
-        var output = ""    ;
+        var output = "";
 
         $.each(data, function (key, item) {
 
