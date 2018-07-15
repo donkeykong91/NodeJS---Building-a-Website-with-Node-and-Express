@@ -18,6 +18,8 @@ app.set("views", "app/views");
 
 app.locals.siteTitle = "Roux Meetups";
 
+app.locals.allSpeakers = dataFile.speakers;
+
 
 app.use(express.static("app/public"));
 
