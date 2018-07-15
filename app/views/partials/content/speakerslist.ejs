@@ -39,9 +39,16 @@
                                 <% } %>
 
 
-                                <% if (pageID == "speakers") { %>
+                                <% if (pageID == "speakerList") { %>
 
                                     <img class="speakerslist-img img-circle pull-left" src="/images/speakers/<%= speaker.shortname %>_tn.jpg" alt="Photo of <%= speaker.name %>">
+
+                                <% } %>
+
+
+                                <% if (pageID == "speakerDetail") { %>
+
+                                    <img class="speakerslist-img img-responsive pull-left" src="/images/speakers/<%= speaker.shortname %>.jpg" alt="Photo of <%= speaker.name %>">
 
                                 <% } %>
 
@@ -49,7 +56,15 @@
         
                             <% if (pageID !== "home") { %>
 
-                                <%= speaker.summary %>
+                                <% if (pageID == "speakerList") { %>
+
+                                    <%= speaker.summary %>
+
+                                <% } else { %>
+
+                                    <%- speaker.description %>
+
+                                <% } %>
 
                             <% } %>
 
