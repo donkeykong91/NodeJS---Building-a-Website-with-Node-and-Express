@@ -22,7 +22,7 @@ $(function() {
 
     $(".feedback-messages").on("click", function (e) {
 
-        if (e.target.classname == "glyphicon glyphicon-remove") {
+        if (e.target.className == "glyphicon glyphicon-remove") {
 
             $.ajax({
 
@@ -53,7 +53,7 @@ $(function() {
             
             output += '                       <button class="feedback-delete btn btn-xs btn-danger">';
                                             
-            output += '                           <span id="' + key + '" class=glyphicon glyphicon-remove></span>';
+            output += '                           <span id="' + key + '" class="glyphicon glyphicon-remove"></span>';
                                             
             output += '                       </button>';
                                         
