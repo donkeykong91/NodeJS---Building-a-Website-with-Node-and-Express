@@ -33,7 +33,7 @@ $(function() {
             
             output += '                       <button class="feedback-delete btn btn-xs btn-danger">';
                                             
-            output += '                           <span id="' + key + '"></span>';
+            output += '                           <span id="' + key + '" class=glyphicon glyphicon-remove></span>';
                                             
             output += '                       </button>';
                                         
