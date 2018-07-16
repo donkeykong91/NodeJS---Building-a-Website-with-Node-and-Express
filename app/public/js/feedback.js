@@ -19,6 +19,26 @@ $(function() {
 
     });
 
+
+    $(".feedback-messages").on("click", function (e) {
+
+        if (e.target.classname == "glyphicon glyphicon-remove") {
+
+            $.ajax({
+
+                url: "api/" + e.target.id,
+
+                type: "DELETE",
+
+                success: updateFeedback
+
+            });
+
+        }
+
+    });
+
+
     function updateFeedback (data) {
         
         var output = "";
