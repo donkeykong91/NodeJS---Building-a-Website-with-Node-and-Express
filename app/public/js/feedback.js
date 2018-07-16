@@ -29,6 +29,16 @@ $(function() {
 
             output += '                <div class="feedback-item media">';
 
+            output += '                    <div class="media-left">';
+            
+            output += '                       <button class="feedback-delete btn btn-xs btn-danger">';
+                                            
+            output += '                           <span id="' + key + '"></span>';
+                                            
+            output += '                       </button>';
+                                        
+            output += '                    </div>';
+
             output += '                    <div class="feedback-info media-body">';
 
             output += '                        <div class="feedback-head">';
