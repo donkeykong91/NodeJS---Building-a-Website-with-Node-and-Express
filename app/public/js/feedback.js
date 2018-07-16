@@ -23,7 +23,7 @@ $(function() {
         
         var output = "";
 
-        $.each(data, function (key, item) {
+        $.each(data, function (key, speaker) {
 
             output += '            <div class="feedback-item item-list media-list">';
 
@@ -33,9 +33,9 @@ $(function() {
 
             output += '                        <div class="feedback-head">';
 
-            output += '                            <div class="feedback-title">' + item.title;
+            output += '                            <div class="feedback-title">' + speaker.title;
                                         
-            output += '                                <small class="feedback-name label label-info">';
+            output += '                                <small class="feedback-name label label-info">' + speaker.name;
 
             output += '                                </small>';
 
@@ -43,7 +43,7 @@ $(function() {
 
             output += '                        </div>';
 
-            output += '                        <div class="feedback-message">' + item.message;
+            output += '                        <div class="feedback-message">' + speaker.message;
                                     
             output += '                        </div>';
 
