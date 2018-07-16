@@ -31,6 +31,8 @@ app.use(require("./routes/feedback"));
 
 app.use(require("./routes/api"));
 
+app.use(require("./routes/chat"));
+
 
 var server = app.listen(app.get("port"), function () {
 
