@@ -42,19 +42,18 @@ var server = app.listen(app.get("port"), function () {
 
 });
 
+
 io.attach(server);
 
 io.on("connection", function (socket) {
 
-    console.log("User Connected");
+    socket.on("postMessage", function(data) {
 
-    
-    socket.on("disconnect", function() {
-
-        console.log("User Disconnected");
+        io.emit("updateMessages", data);
 
     });
 
 });
+
 
 reload(app);
