@@ -2,7 +2,7 @@ var socket = io();
 
 
 socket.on("connect", function () {
-    
+
     var chatForm = document.forms.chatForm;
 
     if (chatForm) {
@@ -16,7 +16,7 @@ socket.on("connect", function () {
     
             e.preventDefault();
     
-            showMessage({
+            socket.emit("postMessage", {
     
                 username: chatUsername.value,
     
