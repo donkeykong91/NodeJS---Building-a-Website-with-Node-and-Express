@@ -1,38 +1,45 @@
 var chatForm = document.forms.chatForm;
 
-
-if (chatForm) {
-
-    var chatUsername = document.querySelector("#chat-username");
-
-    var chatMessage = document.querySelector("#chat-message");
+var socket = io();
 
 
-    chatForm.addEventListener("submit", function (e) {
+socket.on("connect", function () {
 
-        e.preventDefault();
+    if (chatForm) {
 
-        showMessage({
-
-            username: chatUsername.value,
-
-            message: chatMessage.value
-
+        var chatUsername = document.querySelector("#chat-username");
+    
+        var chatMessage = document.querySelector("#chat-message");
+    
+    
+        chatForm.addEventListener("submit", function (e) {
+    
+            e.preventDefault();
+    
+            showMessage({
+    
+                username: chatUsername.value,
+    
+                message: chatMessage.value
+    
+            });
+    
+            chatMessage.value="";
+    
+            chatMessage.focus();
+    
         });
+    }    
 
-        chatMessage.value="";
+});
 
-        chatMessage.focus();
-
-    });
-}
 
 function showMessage (data) {
 
     var chatDisplay = document.querySelector(".chat-display");
 
     var newMessage = document.createElement("p");
-    
+
 
     newMessage.className = "bg-success chat=text";
 
