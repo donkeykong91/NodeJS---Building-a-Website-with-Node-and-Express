@@ -7,28 +7,38 @@ socket.on("connect", function () {
 
     if (chatForm) {
 
-        var chatUsername = document.querySelector("#chat-username");
+        {let chatUsername = document.querySelector("#chat-username");
     
-        var chatMessage = document.querySelector("#chat-message");
-    
-    
-        chatForm.addEventListener("submit", function (e) {
-    
-            e.preventDefault();
-    
-            socket.emit("postMessage", {
-    
-                username: chatUsername.value,
-    
-                message: chatMessage.value
-    
+         let chatMessage = document.querySelector("#chat-message");
+        
+        
+            chatForm.addEventListener("submit", function (e) {
+        
+                e.preventDefault();
+        
+                socket.emit("postMessage", {
+        
+                    username: chatUsername.value,
+        
+                    message: chatMessage.value
+        
+                });
+        
+                chatMessage.value="";
+        
+                chatMessage.focus();
+        
             });
-    
-            chatMessage.value="";
-    
-            chatMessage.focus();
-    
-        });
+
+
+            socket.on("updateMessages", function (data) {
+
+                showMessage(data);
+
+            });
+
+        }
+
     }    
 
 });
