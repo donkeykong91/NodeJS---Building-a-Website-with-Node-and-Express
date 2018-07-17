@@ -1,9 +1,9 @@
-var chatForm = document.forms.chatForm;
-
 var socket = io();
 
 
 socket.on("connect", function () {
+    
+    var chatForm = document.forms.chatForm;
 
     if (chatForm) {
 
